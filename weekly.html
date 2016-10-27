@@ -17,66 +17,25 @@
   </ul>
   </div>
   <div class="two">
-  <h2>Week 1</h2>
-  <p>In the first three weeks, I was to prepare myself for the material.  In the first week, I read the following research papers:
-  <a href="https://people.eecs.berkeley.edu/~alig/papers/mesos.pdf">Mesos</a>, <a href="http://research.google.com/pubs/pub41684.html">Omega</a>
-   and <a href="http://research.google.com/pubs/pub43438.html">Borg</a>.  All three of the papers pertain to methods of optimizing cluster systems between real life frameworks.
- I was a little bit familiar with the concept from taking CS450, however, these papers obviously went into much more detail than what I was familiar with. I went over these papers several times,
-taking detailed notes to make sure I understand as much as I can from these. For now, I have no quesitons about these concepts; I am sure some will pop up with practice. However, for now I trust
+  <h2>Week 1 - Oct 3</h2>
+  <p>In the first three weeks, I was to prepare myself for the material. In the first week, I read the following research papers:
+  <a href="TPDS.pdf">Utilization, Predictability, Workloads, and User Runtime Estimates in Scheduling the IBM SP2 with Backfilling</a>, <a href="ClusterScheduling.pdf">Job Scheduling in HPC Clusters</a>
+   and <a href="Sean.pdf">A Data Driven Scheduling Approach for Power Management on HPC Systems</a>.  
+   
+All three of the papers pertain to methods of optimizing cluster systems between real life frameworks.
+I went over these papers several times, taking detailed notes to make sure I understand as much as I can from these. For now, I have no quesitons about these concepts; I am sure some will pop up with practice. However, for now I trust
 the authors to know what they are talking about. I also met with professor Zhiling Lan and discussed my plans and actions for the next three weeks.</p>
-  <h2>Week 2</h2>
-  <p>As the first week came to a close, I made sure that I understood the three cluster/scheduler concepts. I finished up my notes and self study.  These research papers were taking a long time to comprehend, especially
-  with such elaborate language.  The next step I made was to read the following <a href="http://umbrant.com/blog/2015/mesos_omega_borg_survey.html">blog</a>, which summarized the papers really well. I have also downloaded the <a href="https://github.com/google/cluster-scheduler-simulator">cluster scheduler simulator</a> and the <a href="https://hadoop.apache.org/docs/r2.4.1/hadoop-sls/SchedulerLoadSimulator.html">Hadoop simulator</a>. I actually have some <b>trouble</b> with the cluster simulator.  After some time and installing packages,
-  I was able to install everything correctly without any errors.  However, when I run the command given "bin/sbt run" I get the following error: <p>
-  <img src="image1.png"><br> I have no idea what to do at this point.I figured it has to do with the Java version(8 instead of 7), however, I can't figure out how to downgrade properly. I do have some hours left to work this weekend, and I will use the remainder of my time this week to trouble shoot this.<br>
+  
 
+  
+  <h2>Week 2 - Oct 10</h2>
+  <p>As the first week came to a close, I made sure that I understood the three cluster/scheduler concepts. I also tried out the <a href="HPC/AzureSLURM.html"> Microsoft Azure SLURM Example.</a><br>
 </p>
 
 
-<h2>Week 3</h2>
-  <p>Incorporating the Google trace logs into the simulator:<br> It seems that I've come into another roadblock. In order to download the trace files, the instructional
-  <a href="https://drive.google.com/file/d/0B5g07T_gRDg9Z0lsSTEtTWtpOW8/view">pdf</a> says to install GSUtil software.  It links it there, and I believe I followed the correct instructions,
-however, upon trying to execute any GSUtil command such as the one given <br> <img src="image2.png"><br>I get a message that gsutil is not installed: <img src="image3.png"><br>There's not a lot of help online but I will continue trying to find a solution.
-Update: I did post to the forum of the simulators and it's been about 7 days, and I have not gotten a response from the author, unfortunately.  I have also asked a CS graduate student for help. I asked him if he could try instaling it himself.  He came up with the exact same problem as
-I and suggested that I try running it on a virtual machine.  Therefore, I'm currently installing ubuntu as a dual boot on my computer to see if I'll be able to execute this on Linux</i></p>
-  <h2>Week 4</h2>
-  <p>After almost as many attempts on the Google Cluster Simulator, I have successfully installed Hadoop following these <a href="http://codesfusion.blogspot.in/2013/10/setup-hadoop-2x-220-on-ubuntu.html"> instructions</a>.  I have version 2.7.2 running on the latest version of Ubuntu.  Unfortunately, I couldn't get it to run on Mac, but this will suffice.
-  However, I am happy that I was able to get it running! I haven't done much with it but for now, from starting it, I'm getting this output: <br>
-<code>  <br>hduser1@olakuk:~$ jps
-<br>11088 sun.tools.jps.Jps
-<br>6433 ResourceManager
-<br>5941 NameNode
-<br>6087 DataNode
-<br>6271 SecondaryNameNode
-<br>6735 NodeManager
-</code>
-<br><br>which, according to the guide, means the program is working properly.  I look forward to working on it more today.
-<br>UPDATE: Today's Hadoop experience was a little bit negative. Upon installing, I was ready to launch a sample run on the simulator. I used the <a href="https://hadoop.apache.org/docs/r2.4.1/hadoop-sls/SchedulerLoadSimulator.html#Step_2:_Run_the_simulator">official instructions</a> as a model.
-
-
-<h2>Week 5</h2>
-<p>Because of my efforts being stuck for some time, I have been giving a slightly modified project. It involves analysis of very large datasets describing hundreds of jobs from traces such as the 2011 Google Cluster Data, Exploratory Testing Architecture Traces and Borg machine traces. There are hundreds of files, all with information on these specific jobs.  These job traces include information such as start time, submit time, event type,
-task memory, CPU usage.  Based on this paper entitled <a href="http://www.cs.technion.ac.il/~dan/papers/pwaexp-jpdc-2014.pdf">Experience with using the Parallel Workloads Archive</a> I am to conduct a similar analysis on my given traces.  I have read through the paper and learned a lot.  In the Computer Science field, data quality is just as important as in other experimental fields, however, this area is very underdeveloped, which can lead to
-inconsistencies and inaccuracies for people relying on this data.  For the next four weeks, including this one, I am parsing through my data and and trying to find patterns, irregularities and trying to explain them with similar causes as in the research paper. </p>
-<p> Starting off, I have three separate sources of data. After trying to look up how to open 500 .csv files at once, I have summed up the number of entires to be a couple million. It's a lot to go through, and I'm home I'm not being horribly innefficient by using excel to house the data.  I'm going to brush up on python scripting and plotting.
-
-<h2>Week 6</h2>
-<p>I have spent this week learning how to open up csv files in a python reader, saving them to lists and being able to plot them upon running. First, I was able to come up with this graph:
-  <br><img src="initialplot.png"/><br> Which, despite the lack of labels, was actually a confirmation that I was on the right path. The x axis represents the time passed, and the y axis represents jobs submitted, however, it was only a tiny slice, simplified. <p> The below graph is a more concrete example.  <br><img src="histogram.png"/> <br> It contains the entirety of the machine_events csv file in the 2011 cluster data trace.  The graph itself is pretty self explanatory, it's a frequncy chart (I did not use the built in histogram function in matplotlib, I instead built my own script), and can allow me to see if there was a spike in submitted jobs in a certain time interval.
-    I still have trouble processing a list in its entirety. The machine_events and machine_attributes traces are easy enough, as they only contain a couple thousand entries. However, I'm still trying to figure out how to tackle the million of entires in the job_events trace.  I have tried running a simple script on the complete file, and it was coming up blank for over an hour, so I decided to cancel it.  There are 500 parts to this trace, so the only way I can think of right now is analyzing samples of the data, not in its entirety. <br><img src="job_events.png"/><br>
-
-<h2>Week 7</h2>
-    <p> After some consultations with a professor, I have decided to analyze this data using R language and RStudio.  I have never worked with R before, so I had to catch up pretty quickly.  Howver, I learned that RStudio is much better at opening up millions of entires than just doing it in python scripts.  A file of 10,000,000 entries took just a couple of minutes.  So far I have analyzed the part of the Google Cluster Data, specifically, Job_Events and Machine_Attributes.
-      I have come up with some analyses, as shown in example below:
-      <br><img src="exampleplot1.png"/><br><img src="exampleplot2.png"/><br><img src="exampleplot3.png"/><br><br>I will be analyzing much more in the future, and I have a couple more ready.  <br><br>I do have one problem that I cannot seem to solve, and it's specific to RStudio.  If I reduce the machine_attributes data to just the relevant data, I have the Values column and the Deleted column.  The values range anywhere from 1 to 1800, and there are also some hashed strings in there.  The Deleted column is a boolean indicating whether a value was deleted.  I wanted to reduce the data to just the ones with a value deleted=1.  However, when I do that using the following command: <br>
-      <code>deletedFrame <- df[df$deleted!=0, ]</code>
-      <br>the corresponding values do not copy over. Here's a before and after: <br><img src="before.png"/><br><img src="after.png"/>
-      <br>I will keep working on the other data and for now have submitted a question to stack overflow.
-
-   </div></div>
-
-
-
-
+<h2>Week 3 - Oct 17</h2>
+  <p> Found the 
+  <a href="https://groups.google.com/forum/#!forum/pyslurm">PySLURM Group</a> and <a href="https://groups.google.com/forum/#!forum/slurm-devel">SLURM Developer Group</a>
+  </p>
 
 </html>
