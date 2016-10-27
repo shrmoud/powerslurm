@@ -6,7 +6,7 @@
 <body>
   <div class="ayyy">
   <div class="intro">
-  <h1>Aleksandra Kukielko</h1>
+  <h1>Shreyas Moudgalya</h1>
   <div class="details">
   <div class="one">
     <ul>
@@ -31,7 +31,9 @@ the authors to know what they are talking about. I also met with professor Zhili
   <img src="image1.png"><br> I have no idea what to do at this point.I figured it has to do with the Java version(8 instead of 7), however, I can't figure out how to downgrade properly. I do have some hours left to work this weekend, and I will use the remainder of my time this week to trouble shoot this.<br>
 
 </p>
-  <h2>Week 3</h2>
+
+
+<h2>Week 3</h2>
   <p>Incorporating the Google trace logs into the simulator:<br> It seems that I've come into another roadblock. In order to download the trace files, the instructional
   <a href="https://drive.google.com/file/d/0B5g07T_gRDg9Z0lsSTEtTWtpOW8/view">pdf</a> says to install GSUtil software.  It links it there, and I believe I followed the correct instructions,
 however, upon trying to execute any GSUtil command such as the one given <br> <img src="image2.png"><br>I get a message that gsutil is not installed: <img src="image3.png"><br>There's not a lot of help online but I will continue trying to find a solution.
@@ -51,36 +53,6 @@ I and suggested that I try running it on a virtual machine.  Therefore, I'm curr
 <br><br>which, according to the guide, means the program is working properly.  I look forward to working on it more today.
 <br>UPDATE: Today's Hadoop experience was a little bit negative. Upon installing, I was ready to launch a sample run on the simulator. I used the <a href="https://hadoop.apache.org/docs/r2.4.1/hadoop-sls/SchedulerLoadSimulator.html#Step_2:_Run_the_simulator">official instructions</a> as a model.
 
-<br>As given in the Usage section, the correct way to input a run is
-
-<br><br><code>$HADOOP_ROOT/share/hadoop/tools/sls/bin/slsrun.sh
-    --input-rumen|--input-sls=<TRACE_FILE1,TRACE_FILE2,...>
-    --output-dir=<SLS_SIMULATION_OUTPUT_DIRECTORY> [--nodes=<SLS_NODES_FILE>]
-    [--track-jobs=<JOBID1,JOBID2,...>] [--print-simulation]</code>
-<br><br>I wasn't sure at first how this format would look on an actual example, and I changed up my input several times until the machine was satisfied with it. In the end, I ended up running
-<br><br>
-<code>/usr/local/hadoop/share/hadoop/tools/sls/bin/slsrun.sh --input-rumen=2job2min-rumen-jh.json --output-dir=/home/olakuk/Desktop/ --track-jobs=job_1369942127770_1205</code>
-<br>
-<br>where <b>2job2min-rumen-jh.json</b> is a sample trace given, and <b>job_1369942127770_1205</b> is the jobID of the first job in that trace file. However, upon execution, I just got an infinite loop of this message:
-<br><br><code>
-16/06/08 21:34:18 WARN metrics.CsvReporter: Error writing to sampler.scheduler.operation.handle.timecost
-java.io.IOException: No such file or directory
-at java.io.UnixFileSystem.createFileExclusively(Native Method)
-at java.io.File.createNewFile(File.java:1012)
-at com.codahale.metrics.CsvReporter.report(CsvReporter.java:241)
-at com.codahale.metrics.CsvReporter.reportHistogram(CsvReporter.java:212)
-at com.codahale.metrics.CsvReporter.report(CsvReporter.java:158)
-at com.codahale.metrics.ScheduledReporter.report(ScheduledReporter.java:116)
-at com.codahale.metrics.ScheduledReporter$1.run(ScheduledReporter.java:87)
-at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
-at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
-at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
-at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-at java.lang.Thread.run(Thread.java:745)</code>
-
-<br><br>There is not much help online to this specific problem and this message doesn't even provide much information as to which file has the error. I'm thinking that it's not on my side, but I don't know. I'd just like to get this sample run going, so I can finally start implementing some concrete thinking into the simulator. I am hoping my research meeting tomorrow will be able to point me to some next steps.</p>
 
 <h2>Week 5</h2>
 <p>Because of my efforts being stuck for some time, I have been giving a slightly modified project. It involves analysis of very large datasets describing hundreds of jobs from traces such as the 2011 Google Cluster Data, Exploratory Testing Architecture Traces and Borg machine traces. There are hundreds of files, all with information on these specific jobs.  These job traces include information such as start time, submit time, event type,
