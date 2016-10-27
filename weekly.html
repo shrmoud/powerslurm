@@ -19,23 +19,49 @@
   <div class="two">
   <h2>Week 1 - Oct 3</h2>
   <p>In the first three weeks, I was to prepare myself for the material. In the first week, I read the following research papers:
-  <a href="TPDS.pdf">Utilization, Predictability, Workloads, and User Runtime Estimates in Scheduling the IBM SP2 with Backfilling</a>, <a href="ClusterScheduling.pdf">Job Scheduling in HPC Clusters</a>
+  <a href="TPDS.pdf">Utilization, Predictability, Workloads, and User Runtime Estimates in Scheduling the IBM SP2 with Backfilling</a>,
+  <a href="ClusterScheduling.pdf">Job Scheduling in HPC Clusters</a>
    and <a href="Sean.pdf">A Data Driven Scheduling Approach for Power Management on HPC Systems</a>.  
    
 All three of the papers pertain to methods of optimizing cluster systems between real life frameworks.
-I went over these papers several times, taking detailed notes to make sure I understand as much as I can from these. For now, I have no quesitons about these concepts; I am sure some will pop up with practice. However, for now I trust
+I went over these papers several times, taking detailed notes to make sure I understand as much as I can from these. 
+For now, I have no quesitons about these concepts; I am sure some will pop up with practice. However, for now I trust
 the authors to know what they are talking about. I also met with professor Zhiling Lan and discussed my plans and actions for the next three weeks.</p>
   
 
   
   <h2>Week 2 - Oct 10</h2>
-  <p>As the first week came to a close, I made sure that I understood the three cluster/scheduler concepts. I also tried out the <a href="HPC/AzureSLURM.html"> Microsoft Azure SLURM Example.</a><br>
+  <p>As the first week came to a close, I made sure that I understood the three cluster/scheduler concepts.  there is already the master list 
+  which contains all of the jobs in the wait queue.  The window is just a selection of the top N jobs from that queue.  
+  When we do scheduling, we do it on the window list, not the queue on the whole.  We are concerned about the algorithm,0-1 Knapsack, 
+  but we only apply that algorithm to the window as it would most surely cause jobs 
+  to starve if it worked on the entire queue. I also tried out the <a href="HPC/AzureSLURM.html"> Microsoft Azure SLURM Example.</a><br>
 </p>
 
 
 <h2>Week 3 - Oct 17</h2>
-  <p> Found the 
-  <a href="https://groups.google.com/forum/#!forum/pyslurm">PySLURM Group</a> and <a href="https://groups.google.com/forum/#!forum/slurm-devel">SLURM Developer Group</a>
+  <p>SLURM implements <code> default_queue_depth=# </code> which specifies the number of jobs to consider for scheduling on 
+  each event that may result in a job being scheduled. 
+  Default value is 100 jobs. Since this happens frequently, a relatively small number is generally best.
+  Thi could be used as our window in our window based scheduling approach.
+  
+  I also found the Google Groups for the different SLURM groups.
+  <a href="https://groups.google.com/forum/#!forum/pyslurm">PySLURM Group</a> and 
+  <a href="https://groups.google.com/forum/#!forum/slurm-devel">SLURM Developer Group</a>
+  I also tried installing the <a href="http://www.bsc.es/marenostrum-support-services/services/slurm-simulator">SLURM Simulator</a>
   </p>
 
+<h2>Week 4 - Oct 24</h2>
+  <p> PowerSLURM would implement the use case where the scheduler will implement power aware scheduling wherein there is max system utilization 
+  while staying under power cap.
+  Using <a href="http://www.gingergeeks.co.uk/pyslurm/index.html">PySLURM</a> for 
+  implementing the <a href="https://en.wikipedia.org/wiki/Knapsack_problem#0.2F1_knapsack_problem">Knapsack Problem</a> 
+  </p>
+
+<h2>Week 5 - Oct 31</h2>
+  <p> Running the <a href="https://byuhpc.github.io/BYUJobScriptGenerator">Job Script Generator</a> on
+  the SLURM Simulator and collecting Data.
+  </p>
+  
+  
 </html>
